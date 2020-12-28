@@ -1,0 +1,9 @@
+[package]
+name = "CheckConnections"
+version = "0.0.1"
+authors = ["omerbd21 <omerbendavid21@gmail.com>"]
+edition = "2020"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
