@@ -1,5 +1,5 @@
 [package]
-name = "CheckConnections"
+name = "check_connections"
 version = "0.0.1"
 authors = ["omerbd21 <omerbendavid21@gmail.com>"]
 edition = "2018"
