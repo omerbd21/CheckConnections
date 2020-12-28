@@ -1,10 +1,13 @@
 mod check_connections;
+mod time_check;
 
 use std::net::{TcpListener, TcpStream};
 use std::io::{Read, Write};
 use std::{fs, thread};
 use crate::check_connections::check_connections::check_connections::ThreadPool;
 use crate::check_connections::connection_handler::connection_handler::handle_connection;
+use crate::time_check::get_time::time_check::get_time;
+use std::str;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
@@ -15,6 +18,7 @@ fn main() {
 
         pool.execute(|| {
             handle_connection(stream);
+            println!("{}",get_time());
         });
     }
 }
