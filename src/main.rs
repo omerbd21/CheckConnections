@@ -10,7 +10,7 @@ use crate::time_check::get_time::time_check::get_time;
 use std::str;
 
 fn main() {
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let listener = TcpListener::bind("0.0.0.0:1123").unwrap();
     let pool = ThreadPool::new(100);
 
     for stream in listener.incoming() {
