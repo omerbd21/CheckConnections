@@ -18,7 +18,6 @@ fn main() {
 
         pool.execute(|| {
             handle_connection(stream, get_time());
-            //println!("{}",get_time());
         });
     }
 }
