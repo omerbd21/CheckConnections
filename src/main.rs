@@ -17,8 +17,8 @@ fn main() {
         let stream = stream.unwrap();
 
         pool.execute(|| {
-            handle_connection(stream);
-            println!("{}",get_time());
+            handle_connection(stream, get_time());
+            //println!("{}",get_time());
         });
     }
 }
