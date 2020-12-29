@@ -9,9 +9,16 @@ use crate::check_connections::connection_handler::connection_handler::handle_con
 use crate::time_check::get_time::time_check::get_time;
 use std::str;
 
+
+
+
+const FULL_ADDRESS: &str = "0.0.0.0:1123";
+const THREAD_POOL_CAPACITY: usize = 100;
+
+
 fn main() {
-    let listener = TcpListener::bind("0.0.0.0:1123").unwrap();
-    let pool = ThreadPool::new(100);
+    let listener = TcpListener::bind(FULL_ADDRESS).unwrap();
+    let pool = ThreadPool::new(THREAD_POOL_CAPACITY);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
