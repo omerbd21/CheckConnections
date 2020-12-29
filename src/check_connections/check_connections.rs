@@ -1,11 +1,20 @@
+//! This Module includes functions and structs implementing the connections for the
+//! threaded server.
+
 pub mod check_connections {
     use std::thread;
     use std::sync::{Arc, Mutex, mpsc};
 
+    /// The ThreadPool struct includes a vector of type worker and a sender of type mspc (which
+    /// is a queue used for communicating between threads
     pub struct ThreadPool {
         workers: Vec<Worker>,
         sender: mpsc::Sender<Job>,
     }
+
+
+    /// The Job type includes the traits FnOnce, which means it is meant to be called once
+    /// for every instance, and the Send trait which transfers info between threads
     type Job = Box<dyn FnOnce() + Send + 'static>;
 
     impl ThreadPool {
@@ -34,6 +43,10 @@ pub mod check_connections {
         }
     }
 
+
+
+    /// The Worker struct is part of the ThreadPool struct, and its job is to spawn new threads
+    /// from said ThreadPool. Each worker has its ID and a thread.
     struct Worker {
         id: usize,
         thread: thread::JoinHandle<()>,
